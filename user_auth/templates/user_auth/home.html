@@ -7,7 +7,32 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Money Chase</title>
 </head>
-<body>
-    <p>Hello World!</p>
+<body style="background-image: url({% static 'images/f2204ea1-ad27-4e0c-b338-95ac1db24d13.webp' %}); background-repeat: no-repeat; background-position: center; background-size: cover;" class="flex">
+    <main class="w-full h-screen text-center flex justify-center items-center transition-all duration-300 lg:w-2/4 lg:bg-teal-950">
+        <div class="w-4/5 min-h-1/4 bg-gradient-to-b from-teal-500/80 to-teal-300/20 p-4 rounded-md">
+            <p class="mb-4 text-slate-700 font-semibold text-lg lg:text-slate-900">MEMBER LOGIN</p>
+            <form action="" method="post" class="text-start">
+                <div class="mb-4">
+                    <label for="email" class="font-semibold text-slate-700 lg:text-slate-900">E-mail</label>
+                    <input type="email" name="email" id="email" placeholder="your_email@company.com" class="w-full px-2 py-3 mt-1 bg-slate-700/70 placeholder:text-gray-200 text-white focus-within:outline-none">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="font-semibold text-slate-700 lg:text-slate-900">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Your Password" class="w-full px-2 py-3 mt-1 bg-slate-700/70 placeholder:text-gray-200 text-white focus-within:outline-none">
+                </div>
+            </form>
+            <button type="submit" class="w-[90%] bg-gray-50/80 font-semibold py-2 my-2 focus-within:outline-slate-700 lg:text-slate-900">LOGIN</button>
+            <p class="text-xs my-1 text-white">Forgot password? <a href="" class="underline cursor focus-within:outline-blue-300">Click Here</a></p>
+            <hr class="my-6 bg-slate-700 h-[1px] border-none">
+            <button  class="w-full bg-teal-500/80 font-semibold py-2 my-2 outline-teal-300 lg:text-slate-900"><a href="" tabindex="-1">REGISTER</a></button>
+        </div>
+    </main>
+    <aside class="hidden lg:flex w-2/4 h-screen justify-center items-center bg-sky-700/40 text-center px-8 transition-all duration-300">
+        <div class="text-white mb-12">
+            <img src="{% static 'images/8a1d7983-ef99-4d14-8860-e9cba3ba6902.webp'%}" alt="" class="w-24 h-24 my-12 mx-auto">
+            <p class="text-3xl mb-12">Manage Your Finances With Full Control.</p>
+            <p>The most powerful, secure and efficient financial manager.</p>
+        </div>
+    </aside>
 </body>
 </html>
