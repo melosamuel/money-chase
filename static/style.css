@@ -762,6 +762,12 @@ video {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
 }
+.placeholder\:text-gray-200\/50::-moz-placeholder {
+  color: rgb(229 231 235 / 0.5);
+}
+.placeholder\:text-gray-200\/50::placeholder {
+  color: rgb(229 231 235 / 0.5);
+}
 .focus-within\:outline-none:focus-within {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -782,6 +788,10 @@ video {
     width: 50%;
   }
 
+  .lg\:w-3\/5 {
+    width: 60%;
+  }
+
   .lg\:bg-teal-950 {
     --tw-bg-opacity: 1;
     background-color: rgb(4 47 46 / var(--tw-bg-opacity));
@@ -790,5 +800,26 @@ video {
   .lg\:text-slate-900 {
     --tw-text-opacity: 1;
     color: rgb(15 23 42 / var(--tw-text-opacity));
+  }
+}
+@media (min-width: 1280px) {
+
+  .xl\:my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .xl\:w-2\/5 {
+    width: 40%;
+  }
+
+  .xl\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .xl\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
