@@ -11,9 +11,6 @@ def get_world_places() -> dict:
 
     response = requests.get(url).json()
 
-    with open("./reponse.json", "w", encoding="utf-8") as file:
-        file.write(str(response))
-
     data = { place["name"]: [state["name"] for state in place["states"]] for place in response["data"] }
     
     return data
