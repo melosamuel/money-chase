@@ -5,45 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <script src="{% static 'script.js' %}"></script>
     <title>Money Chase</title>
 </head>
 <body style="background-image: url({% static 'images/f2204ea1-ad27-4e0c-b338-95ac1db24d13.webp' %}); background-repeat: no-repeat; background-position: center; background-size: cover;" class="flex">
     <main class="w-full h-screen text-center flex justify-center items-center transition-all duration-300">
         <div class="w-4/5 min-h-1/4 bg-gradient-to-b from-teal-500/80 to-teal-300/20 p-4 rounded-md lg:w-3/5 xl:w-2/5">
             <p class="mb-4 text-slate-700 font-semibold text-lg xl:text-3xl">MEMBER REGISTER</p>
-            <form action="{% url 'login' %}" method="post" class="text-start">
+            <form action="{% url 'register' %}" method="post" class="text-start">{% csrf_token %}
                 <div class="mb-4">
                     <label for="email" class="font-semibold text-slate-700 xl:text-lg">E-mail</label>
-                    <input type="email" name="email" id="email" placeholder="your_email@company.com" required class="w-full px-2 py-3 mt-1 bg-slate-700/70 placeholder:text-gray-200/50 text-white focus-within:outline-none">
+                    <input type="email" name="email" id="email" minlength="5" placeholder="your_email@company.com" required class="w-full px-2 py-3 mt-1 bg-slate-700/70 placeholder:text-gray-200/50 text-white focus-within:outline-none">
                 </div>
+                {% if form.email.errors %}
+                    {{ form.email.errors}}
+                {% endif %}
                 <div class="mb-4">
                     <label for="password" class="font-semibold text-slate-700 xl:text-lg">Password</label>
-                    <input type="password" title="Your password" name="password" id="password" placeholder="Your Password" required class="w-full px-2 py-3 mt-1 bg-slate-700/70 placeholder:text-gray-200/50 text-white focus-within:outline-none">
+                    <input type="password" title="Your password" name="password" id="password" minlength="8" placeholder="Your Password" required class="w-full px-2 py-3 mt-1 bg-slate-700/70 placeholder:text-gray-200/50 text-white focus-within:outline-none">
                 </div>
+                {% if form.password.errors %}
+                    {{ form.password.errors}}
+                {% endif %}
                 <div class="mb-4">
                     <label for="name" class="font-semibold text-slate-700 xl:text-lg">Name</label>
-                    <input type="text" name="name" id="name" placeholder="John Claude" title="Your name without numbers or symbols" pattern="[A-Z a-z]+" required class="w-full px-2 py-3 mt-1 bg-slate-700/70 placeholder:text-gray-200/50 text-white focus-within:outline-none">
+                    <input type="text" name="name" id="name" placeholder="John Claude" minlength="4" title="Your name without numbers or symbols" pattern="[A-Z a-z]+" required class="w-full px-2 py-3 mt-1 bg-slate-700/70 placeholder:text-gray-200/50 text-white focus-within:outline-none">
                 </div>
-                <div class="mb-4">
-                    <label for="birthday" class="font-semibold text-slate-700 xl:text-lg">Birthday</label>
-                    <input type="date" name="birthday" id="birthday" required class="w-full px-2 py-3 mt-1 bg-slate-700/70 placeholder:text-gray-200/50 text-white focus-within:outline-none">
-                </div>
-                <div class="mb-4">
-                    <label for="country" class="font-semibold text-slate-700 xl:text-lg">Country</label>
-                    <select name="country" id="country" required onchange="updateStates({{places}})" class="w-full px-2 py-3 mt-1 bg-slate-700/70 placeholder:text-gray-200/50 text-white focus-within:outline-none">
-                        <option value="">Select Country</option>
-                        {% for country in places.keys %}
-                            <option value="{{country}}">{{country}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="mb-4">
-                    <label for="state" class="font-semibold text-slate-700 xl:text-lg">State</label>
-                    <select name="state" id="state" required class="w-full px-2 py-3 mt-1 bg-slate-700/70 placeholder:text-gray-200/50 text-white focus-within:outline-none">
-                        <option value="">Select State</option>
-                    </select>
-                </div>
+                {% if form.name.errors %}
+                    {{ form.name.errors}}
+                {% endif %}
                 <button type="submit" class="w-full bg-gray-50/80 font-semibold py-2 my-2 focus-within:outline-slate-700 xl:text-lg xl:my-4">REGISTER</button>
             </form>
             <hr class="my-6 bg-slate-700 h-[1px] border-none">

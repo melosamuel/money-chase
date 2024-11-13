@@ -1,13 +1,23 @@
 from django.shortcuts import render
-from user_auth.scripts.get_countries import get_world_places
+from user_auth.scripts.validators import RegisterForm
 
 def login(request):
-    return render(request, 'user_auth/login.html')
+    if request.method == "GET":
+        return render(request, 'user_auth/login.html')
 
 def register(request):
-    places = get_world_places()
+    form = RegisterForm()
 
-    return render(request, 'user_auth/register.html', {'places': places})
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+
+        if form.is_valid():
+            return None
+        
+        return render(request, 'user_auth/register.html', {'form': form})
+
+    return render(request, 'user_auth/register.html', {'form': form})
 
 def reset_password(request):
-    return render(request, 'user_auth/reset_password.html')
+    if request.method == "GET":
+        return render(request, 'user_auth/reset_password.html')
